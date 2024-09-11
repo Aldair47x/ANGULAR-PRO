@@ -1,16 +1,11 @@
-import { CommonModule } from '@angular/common';
+import { CalculatorComponent } from '@/calculator/components/calculator/calculator.component';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { CalculatorComponent } from "../../components/calculator/calculator.component";
 
 @Component({
-  selector: 'app-calculator-view',
+  selector: 'calculator-view',
   standalone: true,
-  imports: [
-    CommonModule,
-    CalculatorViewComponent,
-    CalculatorComponent
-],
+  imports: [CalculatorComponent],
   templateUrl: './calculator-view.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CalculatorViewComponent { }
+export default class CalculatorViewComponent {}
