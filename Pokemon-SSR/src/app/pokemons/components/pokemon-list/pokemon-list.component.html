@@ -1,6 +1,6 @@
 <div class="grid gap-3 grid-cols-1 sm:grid-cols-3 md:grid-cols-5">
-  @for (pokemon of "321423443".split(''); track $index) {
-    <app-pokemon-card></app-pokemon-card>
+  @for (pokemon of pokemons(); track pokemon.id) {
+    <app-pokemon-card [pokemon]="pokemon" />
   }
   <!-- <app-pokemon-card></app-pokemon-card> -->
 
