@@ -1,0 +1,57 @@
+@if ( pokemon() === null ) {
+  <div class="flex justify-center">
+    <div class="animate-pulse bg-blue-500 h-44 bg-opacity-25 rounded-lg shadow-md flex flex-col p-4 items-center justify-center cursor-pointer">
+      <div class="w-24 h-24 bg-gray-300 rounded-full"></div>
+      <div class="text-center mt-2">
+        <h2 class="text-xl font-bold capitalize text-white">Loading...</h2>
+      </div>
+    </div>
+  </div>
+} @else {
+  <section class="flex flex-col justify-center">
+    <div class="flex justify-center">
+      <h1 class="text-4xl font-bold capitalize my-5">{{ pokemon()!.name }}</h1>
+    </div>
+    <div class="flex justify-center">
+      <img [src]="pokemonImage()" [alt]="pokemon()!.name" class="w-48 h-48" width="192px" height="192px" />
+    </div>
+    <div class="flex justify-center">
+      <div class="flex flex-col">
+        <div class="flex justify-center">
+          <h2 class="text-2xl font-bold capitalize my-5">Abilities</h2>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex justify-center">
+            <ul class="list-disc">
+              <li *ngFor="let ability of pokemon()!.abilities">
+                {{ ability.ability.name }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-center">
+      <div class="flex flex-col">
+        <div class="flex justify-center">
+          <h2 class="text-2xl font-bold capitalize my-5">Types</h2>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex justify-center">
+            <ul class="list-disc">
+              <li *ngFor="let type of pokemon()!.types">
+                {{ type.type.name }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+}
+  <!-- <section class="flex flex-col justify-center">
+    <div class="flex justify-center">
+      <h1 class="text-4xl font-bold capitalize my-5">{{ pokemon().name }}</h1>
+    </div>
+  </section> -->
+

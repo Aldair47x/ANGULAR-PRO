@@ -7,11 +7,12 @@ import {
   input,
 } from '@angular/core';
 import { Pokemon } from '../../interfaces/pokemon.interface';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './pokemon-card.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

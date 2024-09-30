@@ -3,6 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { map, Observable, tap } from 'rxjs';
 import { Pokemon } from '../interfaces/pokemon.interface';
 import { PokeAPIResponse } from '../interfaces/pokemon-api.interface';
+import { PokemonInfo } from '../interfaces/pokemon-info.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -25,5 +26,9 @@ export class PokemonsService {
       tap(() => console.log('Pokemons loaded'))
     ))
     )
+  }
+
+  public loadPokemon(id: string) {
+    return this._http.get<PokemonInfo>(`https://pokeapi.co/api/v2/pokemon/${id}`);
   }
 }

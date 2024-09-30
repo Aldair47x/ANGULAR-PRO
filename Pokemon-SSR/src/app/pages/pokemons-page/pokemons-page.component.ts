@@ -57,7 +57,7 @@ export class PokemonsPageComponent implements OnInit, OnDestroy {
     const pageToLoad = this.currentPage()! + page;
     this.pokemonService.loadPage(pageToLoad).pipe(
       tap(() => this.router.navigate([], { queryParams: { page: pageToLoad } })),
-      tap(() => this.title.setTitle(`Pokemons - Page ${this.currentPage()}`))
+      tap(() => this.title.setTitle(`Pokemons - Page ${pageToLoad}`))
     ).subscribe((pokemons) => {
       this.pokemons.set(pokemons);
     });
