@@ -37,7 +37,6 @@ export class PokemonInfoComponent implements OnInit {
         this.meta.updateTag({name: 'description', content: `Pokemon ${name} info page`});
         this.meta.updateTag({name: 'keywords', content: `pokemon, ${name}, info`});
         this.meta.updateTag({name: 'author', content: 'Pokemon API'});
-        console.log('Pokemon loaded');
       })
     )
     .subscribe(this.pokemon.set);

@@ -1,0 +1,9 @@
+/pokemons/page/10
+/pokemons/page/20
+/pokemons/page/30
+/pokemons/page/40
+/pokemons/page/50
+/pokemon/blastoise
+/pokemon/charizard
+/pokemon/venusaur
+/pokemon/pikachu

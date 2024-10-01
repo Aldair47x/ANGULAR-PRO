@@ -22,6 +22,9 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/pokemon-info/pokemon-info.component').then(m => m.PokemonInfoComponent)
   },
   {
+    path: 'pokemons/page/:page',
+    loadComponent: () => import('./pages/pokemons-page/pokemons-page.component').then(m => m.PokemonsPageComponent)},
+  {
     path: '**',
     redirectTo: 'about'
   }
