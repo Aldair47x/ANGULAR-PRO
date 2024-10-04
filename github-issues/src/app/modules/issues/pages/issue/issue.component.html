@@ -1,0 +1,45 @@
+<h1>
+  Issue number: <small>{{ issueNumber() }}</small>
+</h1>
+<a [routerLink]="['/']">Back</a>
+
+<!-- Create a clear layout to show the issue details and the comments. -->
+<div class="flex">
+  <div class="w-3/4">
+    <div class="border border-gray-200 mt-2 rounded-md shadow-sm">
+      <div class="p-2 bg-gray-700 text-white">
+        @if(isssueQuery.data() === undefined){
+          <p>Cargando issue</p>
+        } @else {
+          <app-issue-comment [issue]="isssueQuery.data()!" />
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="w-1/4">
+    <div class="border border-gray-200 mt-2 rounded-md shadow-sm">
+      <div class="bg-blue-500 text-white p-2 rounded-t-md">
+        <span class="mx-2">Comments</span>
+      </div>
+
+      <div class="p-2 bg-gray-700 text-white">
+        @if ( issueCommentsQuery.isLoading() ) {
+          <p>Cargando comentarios</p>
+        } @else {
+            @for (comment of issueCommentsQuery.data(); track comment.id) {
+              <app-issue-comment [issue]="comment" />
+            }
+          @empty {
+          <p>No hay comentarios</p>
+          }
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
