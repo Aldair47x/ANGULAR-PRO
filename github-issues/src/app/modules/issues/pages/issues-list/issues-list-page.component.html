@@ -4,35 +4,51 @@
 <section class="grid grid-cols-1 sm:grid-cols-3 gap-2">
   <div class="col-span-3 flex flex-col">
     <div class="flex gap-2">
-      <button class="btn active">All</button>
-      <button class="btn">Open</button>
-      <button class="btn">Closed</button>
+      <button
+        [class.active]="issuesService.selectedState() === 'all'"
+        class="btn"
+        (click)="onChangeState('all')"
+      >
+        All
+      </button>
+      <button
+        [class.active]="issuesService.selectedState() === 'open'"
+        class="btn"
+        (click)="onChangeState('open')"
+      >
+        Open
+      </button>
+      <button
+        [class.active]="issuesService.selectedState() === 'closed'"
+        class="btn"
+        (click)="onChangeState('closed')"
+      >
+        Closed
+      </button>
     </div>
   </div>
 
   <div class="mt-4 flex flex-col col-span-2">
     @for (issue of issuesQuery.data(); track issue.id) {
-      <app-issue-item [issue]="issue" />
-    } @empty {
-      @if (issuesQuery.isLoading()) {
-        <p>Loading...</p>
-      } @else if (issuesQuery.isError()) {
-        <p>Error: {{ issuesQuery.error() }}</p>
-      } @else {
-        <p>No issues found</p>
-      }
-    }
+    <app-issue-item [issue]="issue" />
+    } @empty { @if (issuesQuery.isLoading()) {
+    <p>Loading...</p>
+    } @else if (issuesQuery.isError()) {
+    <p>Error: {{ issuesQuery.error() }}</p>
+    } @else {
+    <p>No issues found</p>
+    } }
   </div>
 
   <div>
     @if (labelsQuery.isLoading()) {
-      <p>Loading...</p>
+    <p>Loading...</p>
     } @else if (labelsQuery.isError()) {
-      <p>Error: {{ labelsQuery.error() }}</p>
+    <p>Error: {{ labelsQuery.error() }}</p>
     } @else {
-      <ul>
-        <app-labels-selector [labels]="labelsQuery.data() ?? []" />
-      </ul>
+    <ul>
+      <app-labels-selector [labels]="labelsQuery.data() ?? []" />
+    </ul>
 
     }
   </div>
